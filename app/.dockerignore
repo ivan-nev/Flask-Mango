@@ -1,0 +1,6 @@
+.git/
+.cache/
+.idea/
+__pycache__/
+venv/
+client.py

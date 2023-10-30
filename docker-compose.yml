@@ -5,8 +5,8 @@ services:
     restart: always
     ports:
       - 27017:27017
-#    volumes:
-#      - postgres_data:/var/lib/postgresql/data/
+    volumes:
+      - mango_data:/data/
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
       MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
@@ -29,25 +29,5 @@ services:
       - mongodb
     command: python app.py
 
-
-
-#  web:
-#    build: ./app
-#    command: gunicorn -b 0.0.0.0:8080 app:app --capture-output
-## при редактировании папки app изменения отражаются в контейнере
-##    volumes:
-##      - ./app/:/usr/src/app/
-#    ports:
-#      - 8080:8080
-#    env_file:
-#      - ./.env
-#    depends_on:
-#      - mongodb
-#    links:
-#      - mongodb
-
-
-
-#volumes:
-#  postgres_data:
-
+volumes:
+  mango_data:
